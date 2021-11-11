@@ -13,6 +13,8 @@ import AuthProvider from './contexts/AuthProvider/AuthProvider';
 import BuyNow from './Pages/BuyNow/BuyNow';
 import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
 import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
+import Payment from './Pages/Dashboard/Payment/Payment';
+import Order from './Pages/Dashboard/Order/Order';
 
 function App() {
   return (
@@ -34,6 +36,14 @@ function App() {
 
           <Route path="/register">
             <Register></Register>
+          </Route>
+
+          <Route path="/payment">
+            <Payment></Payment>
+          </Route>
+
+          <Route path="/my-order">
+            <Order></Order>
           </Route>
 
           <Route path="/dashboard">

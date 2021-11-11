@@ -1,29 +1,43 @@
 import React from 'react';
-import { Nav } from 'react-bootstrap';
+import { Button, Col, Nav, Row } from 'react-bootstrap';
+import bg from './bg_dashboard.jpg';
+import { Link } from 'react-router-dom';
+import useAuth from '../../../hooks/useAuth';
+
+const dashboardBg = {
+    background: `url(${bg})`,
+}
 
 const Dashboard = () => {
+    const { logout } = useAuth();
     return (
         <div>
-            <Nav className="col-md-12 d-none d-md-block bg-light sidebar"
-                activeKey="/home"
-                onSelect={selectedKey => alert(`selected ${selectedKey}`)}
-            >
-                <div className="sidebar-sticky"></div>
-                <Nav.Item>
-                    <Nav.Link href="/home">Active</Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                    <Nav.Link eventKey="link-1">Link</Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                    <Nav.Link eventKey="link-2">Link</Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                    <Nav.Link eventKey="disabled" disabled>
-                        Disabled
-                    </Nav.Link>
-                </Nav.Item>
-            </Nav>
+            <Row>
+                <Col xs={12} md={2}>
+                    <Nav>
+                        <div className="sidebar-sticky">
+                            <Nav.Item>
+                                <Nav.Link as={Link} to="/payment"><i class="fas fa-file-invoice-dollar"></i> Payment</Nav.Link>
+                            </Nav.Item>
+                            <Nav.Item>
+                                <Nav.Link as={Link} to="/my-order"><i class="far fa-grin-stars"></i> My Order</Nav.Link>
+                            </Nav.Item>
+                            <Nav.Item>
+                                <Nav.Link as={Link} to="/home"><i class="fas fa-star"></i> Review</Nav.Link>
+                            </Nav.Item>
+                            <Nav.Item>
+                                <Nav.Link as={Link} to="/home" onClick={logout} ><i class="fas fa-sign-out-alt"></i>
+                                    Logout
+                                </Nav.Link>
+                            </Nav.Item>
+                        </div>
+                    </Nav>
+                </Col>
+                <Col style={dashboardBg} xs={12} md={8}>
+
+                </Col>
+            </Row>
+
         </div>
     );
 };

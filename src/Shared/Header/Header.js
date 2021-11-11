@@ -14,22 +14,20 @@ const Header = () => {
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
                             <Nav.Link as={Link} to="/home">Home</Nav.Link>
-                            <Nav.Link as={Link} to="/dashboard">Dashboard</Nav.Link>
+
                         </Nav>
                         <Nav>
                             {
                                 user?.email ?
-                                    <Button onClick={logout} variant="primary">Logout</Button>
+                                    <div className="d-flex">
+                                        <Nav.Link as={Link} to="/dashboard">Dashboard</Nav.Link>
+                                        <Button onClick={logout} variant="primary">Logout</Button>
+                                    </div>
                                     :
                                     <NavLink to="/login">
                                         <Button variant="primary">Login</Button>
                                     </NavLink>
                             }
-
-
-                            <Nav.Link eventKey={2} href="#memes">
-                                Dank memes
-                            </Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
