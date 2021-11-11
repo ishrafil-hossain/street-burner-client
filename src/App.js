@@ -1,24 +1,45 @@
-import logo from './logo.svg';
 import './App.css';
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
+import Header from './Shared/Header/Header';
+import Home from './Pages/Home/Home/Home';
+import Login from './Pages/Login/Login/Login';
+import Register from './Pages/Login/Register/Register';
+import AuthProvider from './contexts/AuthProvider/AuthProvider';
+import BuyNow from './Pages/BuyNow/BuyNow';
+import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AuthProvider>
+      <Router>
+        <Header></Header>
+        <Switch>
+          <Route exact path="/">
+            <Home></Home>
+          </Route>
+          <Route path="/home">
+            <Home></Home>
+          </Route>
+          <Route path="/login">
+            <Login></Login>
+          </Route>
+          <Route path="/register">
+            <Register></Register>
+          </Route>
+
+          <PrivateRoute path="/buy-now/:buyNowId">
+            <BuyNow></BuyNow>
+          </PrivateRoute>
+
+        </Switch>
+      </Router>
+    </AuthProvider>
+
   );
 }
 

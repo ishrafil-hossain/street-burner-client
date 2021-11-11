@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "name": "Royel & Filed",
+        "img": "https://i.ibb.co/Kj1cxDq/1.jpg",
+        "desciption": "Royal Enfield was a brand name under which The Enfield Cycle Company Limited of Redditch, \tWorcestershire[1] sold motorcycles, bicycles, lawnmowers and stationary engines which they had tmanufactured. Enfield Cycle Company also used the brand name Enfield without the Royal",
+        "price": 1700000
+    },
+    {
+        "id": 2,
+        "name": "yamaha v3 bh4",
+        "img": "https://i.ibb.co/2gCPSvc/3.jpg",
+        "desciption": "The wave of updated BS6 compliant two-wheelers brings with it the updated Yamaha R15 V3. Not only does it get a greener, more fuel efficient motor, but it also comes with a couple of more features compared to the BS4-compliant model. Here’s what’s changed and what has been retained",
+        "price": 525000
+    },
+    {
+        "id": 3,
+        "name": "yamaha YZF",
+        "img": "https://i.ibb.co/N69nHSV/4.jpg",
+        "desciption": "e 998cc inline-four-cylinder engine features Yamaha’s exclusive crossplane crankshaft technology derived from Yamaha's YZR-M1 MotoGP® race bike. Every aspect of this unique engine is built to thrill",
+        "price": 3000000
+    }
+]
