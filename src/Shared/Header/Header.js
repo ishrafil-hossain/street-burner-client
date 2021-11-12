@@ -23,7 +23,10 @@ const Header = () => {
                                 user?.email ?
                                     <div className="d-flex">
                                         <Nav.Link as={Link} to="/dashboard">Dashboard</Nav.Link>
-                                        <Button onClick={logout} variant="primary">Logout</Button>
+
+                                        <Nav.Link as={Link} to="/login" onClick={logout} ><i className="fas fa-sign-out-alt"></i>
+                                            Logout
+                                        </Nav.Link>
                                     </div>
                                     :
                                     <NavLink to="/login">

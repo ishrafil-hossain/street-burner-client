@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Explore from '../../Explore/Explore';
 import Product from '../Product/Product';
 
 const Products = () => {

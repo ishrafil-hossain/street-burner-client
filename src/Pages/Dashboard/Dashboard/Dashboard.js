@@ -10,7 +10,7 @@ const Dashboard = () => {
         <div>
             <div>
                 <Navbar bg="light" expand={false}>
-                    <Container fluid>
+                    <Container>
                         <Navbar.Toggle aria-controls="offcanvasNavbar" />
                         <Navbar.Brand href="#">Dashboard</Navbar.Brand>
                         <Navbar.Offcanvas
@@ -42,7 +42,7 @@ const Dashboard = () => {
                                         <Nav.Link as={Link} to="/home"><i className="fas fa-star"></i> Review</Nav.Link>
                                     </Nav.Item>
                                     <Nav.Item>
-                                        <Nav.Link as={Link} to="/home" onClick={logout} ><i className="fas fa-sign-out-alt"></i>
+                                        <Nav.Link as={Link} to="/login" onClick={logout} ><i className="fas fa-sign-out-alt"></i>
                                             Logout
                                         </Nav.Link>
                                     </Nav.Item>

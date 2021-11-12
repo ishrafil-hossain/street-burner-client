@@ -9,6 +9,17 @@ const BuyNow = () => {
     const { user } = useAuth();
     const [buynow, setBuynow] = useState([]);
 
+    useEffect(() => {
+        fetch('https://raw.githubusercontent.com/ishrafil2233/data/main/product.json')
+            .then(res => res.json())
+            .then(data => setBuynow(data));
+    }, []);
+
+    const find = buynow.find(product => product.id == buyNowId)
+
+
+
+
     const initialInfo = { name: user.displayName, email: user.email, selection: '', city: '', phone: '' }
     const [purchases, setPurchases] = useState(initialInfo);
 
@@ -23,13 +34,13 @@ const BuyNow = () => {
     const handlePurchase = e => {
         alert('successfully purchases now')
         // collect data 
-        const purchaseData = { ...purchases }
-
+        const purchaseData = { ...purchases, productName: find.name, productPrice: find.price }
+        console.log(purchaseData)
         // send data to the server 
         fetch('http://localhost:5000/purchases', {
             method: 'POST',
             headers: {
-                'content-type': 'application/json'
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify(purchaseData)
         })
@@ -41,13 +52,7 @@ const BuyNow = () => {
         e.preventDefault()
     }
 
-    useEffect(() => {
-        fetch('https://raw.githubusercontent.com/ishrafil2233/data/main/product.json')
-            .then(res => res.json())
-            .then(data => setBuynow(data));
-    }, []);
 
-    const find = buynow.find(product => product.id == buyNowId)
 
     return (
         <div>
