@@ -5,7 +5,7 @@ import useAuth from '../../../hooks/useAuth';
 
 
 const Dashboard = () => {
-    const { logout, user } = useAuth();
+    const { logout, user, admin } = useAuth();
     return (
         <div>
             <div>
@@ -32,15 +32,33 @@ const Dashboard = () => {
                                     <Nav.Item>
                                         <Nav.Link as={Link} to="/home"><i className="fas fa-home"></i> Home</Nav.Link>
                                     </Nav.Item>
-                                    <Nav.Item>
-                                        <Nav.Link as={Link} to="/payment"><i className="fas fa-file-invoice-dollar"></i> Payment</Nav.Link>
-                                    </Nav.Item>
-                                    <Nav.Item>
-                                        <Nav.Link as={Link} to="/my-order"><i className="far fa-grin-stars"></i> My Order</Nav.Link>
-                                    </Nav.Item>
-                                    <Nav.Item>
-                                        <Nav.Link as={Link} to="/home"><i className="fas fa-star"></i> Review</Nav.Link>
-                                    </Nav.Item>
+
+                                    {
+                                        admin ? <div>
+                                            <Nav.Item>
+                                                <Nav.Link as={Link} to="/manage-orders"><i className="fas fa-star"></i> Manage Orders</Nav.Link>
+                                            </Nav.Item>
+                                            <Nav.Item>
+                                                <Nav.Link as={Link} to="/add-product"><i className="fas fa-star"></i> Add Product</Nav.Link>
+                                            </Nav.Item>
+                                            <Nav.Item>
+                                                <Nav.Link as={Link} to="/make-admin"><i className="fas fa-star"></i> Make an Admin</Nav.Link>
+                                            </Nav.Item>
+                                        </div>
+                                            :
+                                            <div>
+                                                <Nav.Item>
+                                                    <Nav.Link as={Link} to="/payment"><i className="fas fa-file-invoice-dollar"></i> Payment</Nav.Link>
+                                                </Nav.Item>
+                                                <Nav.Item>
+                                                    <Nav.Link as={Link} to="/my-order"><i className="far fa-grin-stars"></i> My Order</Nav.Link>
+                                                </Nav.Item>
+                                                <Nav.Item>
+                                                    <Nav.Link as={Link} to="/review"><i className="fas fa-star"></i> Review</Nav.Link>
+                                                </Nav.Item>
+                                            </div>
+
+                                    }
                                     <Nav.Item>
                                         <Nav.Link as={Link} to="/login" onClick={logout} ><i className="fas fa-sign-out-alt"></i>
                                             Logout

@@ -15,6 +15,10 @@ import Payment from './Pages/Dashboard/Payment/Payment';
 import Order from './Pages/Dashboard/Order/Order';
 import Explore from './Pages/Explore/Explore';
 import Dashboards from './Pages/Dashboard/Dashboards/Dashboards';
+import MakeAdmin from './Pages/Dashboard/MakeAdmin/MakeAdmin';
+import Review from './Pages/Dashboard/Review/Review';
+import AddProduct from './Pages/Dashboard/AddProduct/AddProduct';
+import ManageOrder from './Pages/Dashboard/ManageOrder/ManageOrder';
 
 function App() {
   return (
@@ -51,6 +55,22 @@ function App() {
 
           <Route path="/dashboard">
             <Dashboards></Dashboards>
+          </Route>
+
+          <Route path="/make-admin">
+            <MakeAdmin></MakeAdmin>
+          </Route>
+
+          <Route path="/manage-orders">
+            <ManageOrder></ManageOrder>
+          </Route>
+
+          <Route path="/add-product">
+            <AddProduct></AddProduct>
+          </Route>
+
+          <Route path="/review">
+            <Review></Review>
           </Route>
 
           <PrivateRoute path="/buy-now/:buyNowId">
