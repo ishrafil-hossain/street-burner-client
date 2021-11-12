@@ -1,43 +1,57 @@
 import React from 'react';
-import { Button, Col, Nav, Row } from 'react-bootstrap';
-import bg from './bg_dashboard.jpg';
+import { Container, Nav, Navbar, Offcanvas } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 
-const dashboardBg = {
-    background: `url(${bg})`,
-}
 
 const Dashboard = () => {
-    const { logout } = useAuth();
+    const { logout, user } = useAuth();
     return (
         <div>
-            <Row>
-                <Col xs={12} md={2}>
-                    <Nav>
-                        <div className="sidebar-sticky">
-                            <Nav.Item>
-                                <Nav.Link as={Link} to="/payment"><i class="fas fa-file-invoice-dollar"></i> Payment</Nav.Link>
-                            </Nav.Item>
-                            <Nav.Item>
-                                <Nav.Link as={Link} to="/my-order"><i class="far fa-grin-stars"></i> My Order</Nav.Link>
-                            </Nav.Item>
-                            <Nav.Item>
-                                <Nav.Link as={Link} to="/home"><i class="fas fa-star"></i> Review</Nav.Link>
-                            </Nav.Item>
-                            <Nav.Item>
-                                <Nav.Link as={Link} to="/home" onClick={logout} ><i class="fas fa-sign-out-alt"></i>
-                                    Logout
-                                </Nav.Link>
-                            </Nav.Item>
-                        </div>
-                    </Nav>
-                </Col>
-                <Col style={dashboardBg} xs={12} md={8}>
+            <div>
+                <Navbar bg="light" expand={false}>
+                    <Container fluid>
+                        <Navbar.Toggle aria-controls="offcanvasNavbar" />
+                        <Navbar.Brand href="#">Dashboard</Navbar.Brand>
+                        <Navbar.Offcanvas
+                            id="offcanvasNavbar"
+                            aria-labelledby="offcanvasNavbarLabel"
+                            placement="start">
 
-                </Col>
-            </Row>
-
+                            <Offcanvas.Header closeButton>
+                                <Offcanvas.Title id="offcanvasNavbarLabel">{user.displayName}</Offcanvas.Title>
+                                {/* <img
+                                    src={user.photoURL}
+                                    width="100"
+                                    height="100"
+                                    alt="avatar"
+                                /> */}
+                            </Offcanvas.Header>
+                            <Offcanvas.Body>
+                                <Nav className="justify-content-end flex-grow-1 pe-3">
+                                    <Nav.Item>
+                                        <Nav.Link as={Link} to="/home"><i className="fas fa-home"></i> Home</Nav.Link>
+                                    </Nav.Item>
+                                    <Nav.Item>
+                                        <Nav.Link as={Link} to="/payment"><i className="fas fa-file-invoice-dollar"></i> Payment</Nav.Link>
+                                    </Nav.Item>
+                                    <Nav.Item>
+                                        <Nav.Link as={Link} to="/my-order"><i className="far fa-grin-stars"></i> My Order</Nav.Link>
+                                    </Nav.Item>
+                                    <Nav.Item>
+                                        <Nav.Link as={Link} to="/home"><i className="fas fa-star"></i> Review</Nav.Link>
+                                    </Nav.Item>
+                                    <Nav.Item>
+                                        <Nav.Link as={Link} to="/home" onClick={logout} ><i className="fas fa-sign-out-alt"></i>
+                                            Logout
+                                        </Nav.Link>
+                                    </Nav.Item>
+                                </Nav>
+                            </Offcanvas.Body>
+                        </Navbar.Offcanvas>
+                    </Container>
+                </Navbar>
+            </div>
         </div>
     );
 };

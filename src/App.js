@@ -15,12 +15,12 @@ import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
 import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
 import Payment from './Pages/Dashboard/Payment/Payment';
 import Order from './Pages/Dashboard/Order/Order';
+import Explore from './Pages/Explore/Explore';
 
 function App() {
   return (
     <AuthProvider>
       <Router>
-        <Header></Header>
         <Switch>
           <Route exact path="/">
             <Home></Home>
@@ -32,6 +32,10 @@ function App() {
 
           <Route path="/login">
             <Login></Login>
+          </Route>
+
+          <Route path="/explore">
+            <Explore></Explore>
           </Route>
 
           <Route path="/register">

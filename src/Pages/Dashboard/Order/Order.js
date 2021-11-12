@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import useAuth from '../../../hooks/useAuth';
+import Dashboard from '../Dashboard/Dashboard';
 
 const Order = () => {
     const { user } = useAuth();
@@ -12,8 +13,12 @@ const Order = () => {
     }, [])
     return (
         <div>
-            <h3>Total Orders : {orders.length}</h3>
+            <Dashboard></Dashboard>
+            <div>
+                <h3>Total Orders : {orders.length}</h3>
+            </div>
         </div>
+
     );
 };
 

@@ -7,13 +7,15 @@ const Header = () => {
     const { user, logout } = useAuth();
     return (
         <div>
-            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+            <Navbar sticky collapseOnSelect expand="lg" bg="dark" variant="dark">
                 <Container>
                     <Navbar.Brand href="#home">Street Burner</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
                             <Nav.Link as={Link} to="/home">Home</Nav.Link>
+
+                            <Nav.Link as={Link} to="/explore">Explore</Nav.Link>
 
                         </Nav>
                         <Nav>

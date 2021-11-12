@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Explore from '../../Explore/Explore';
 import Product from '../Product/Product';
 
 const Products = () => {
@@ -8,16 +9,12 @@ const Products = () => {
         fetch('https://raw.githubusercontent.com/ishrafil2233/data/main/product.json')
             .then(res => res.json())
             .then(data => setProducts(data))
-    }, [])
-    console.log('hello this is ishrafil hossain', products);
+    }, []);
     return (
         <div>
-            {
-
-            }
             <div className="row row-cols-1 row-cols-md-3 g-4 m-2">
                 {
-                    products.map(product => <Product
+                    products.slice(0, 6).map(product => <Product
                         key={product.id}
                         product={product}
                     ></Product>)
