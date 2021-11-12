@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
+import Dashboard from '../Dashboard/Dashboard';
 
 const MakeAdmin = () => {
     const [email, setEmail] = useState('');
@@ -29,7 +30,8 @@ const MakeAdmin = () => {
     }
     return (
         <div>
-            <h2>Make an admin</h2>
+            <Dashboard></Dashboard>
+            <h2 className="text-center m-5">Make an admin</h2>
             <div className="mt-5 mb-5 add-offer form w-50 container">
                 <Form onSubmit={handleAdminSubmit}>
                     <Form.Group className="mb-3" controlId="formBasicEmail">

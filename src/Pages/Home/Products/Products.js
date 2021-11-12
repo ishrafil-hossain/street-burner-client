@@ -5,7 +5,7 @@ const Products = () => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        fetch('https://raw.githubusercontent.com/ishrafil2233/data/main/product.json')
+        fetch('http://localhost:5000/products')
             .then(res => res.json())
             .then(data => setProducts(data))
     }, []);
@@ -14,7 +14,7 @@ const Products = () => {
             <div className="row row-cols-1 row-cols-md-3 g-4 m-2">
                 {
                     products.slice(0, 6).map(product => <Product
-                        key={product.id}
+                        key={product._id}
                         product={product}
                     ></Product>)
                 }

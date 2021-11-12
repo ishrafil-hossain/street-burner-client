@@ -10,7 +10,7 @@ const BuyNow = () => {
     const [buynow, setBuynow] = useState([]);
 
     useEffect(() => {
-        fetch('https://raw.githubusercontent.com/ishrafil2233/data/main/product.json')
+        fetch('http://localhost:5000/products')
             .then(res => res.json())
             .then(data => setBuynow(data));
     }, []);
@@ -67,7 +67,7 @@ const BuyNow = () => {
                                     <Card.Title>{find?.name}</Card.Title>
                                     <Card.Title>Price : {find?.price} TK</Card.Title>
                                 </div>
-                                <Card.Text>{find?.desc}</Card.Text>
+                                <Card.Text>{find?.description}</Card.Text>
                             </Card.Body>
                         </Card>
                     </Col>
