@@ -32,6 +32,10 @@ const AddProduct = () => {
                         <input type="submit" />
                     </form>
                 </div>
+
+                <p>
+                    <span className="text-danger h4">Note :</span> To add an image for a new product, you have upload the image on any image hosting sites like imgbb, etc.and then have to add the link of the img uri input field
+                </p>
             </Container>
         </div>
     );

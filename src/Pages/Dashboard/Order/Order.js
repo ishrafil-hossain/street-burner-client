@@ -12,6 +12,24 @@ const Order = () => {
             .then(res => res.json())
             .then(data => setOrders(data));
     }, []);
+
+    // Delete a single purchase product 
+    const handleDelete = id => {
+        const confirm = window.confirm('Are you sure to delete your order?');
+        if (confirm) {
+            fetch(`http://localhost:5000/purchases/${id}`, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log('this is data', data);
+                    const remaining = orders.filter(order => order._id !== id);
+                    setOrders(remaining);
+                })
+        }
+
+    }
+
     return (
         <div>
             <Dashboard></Dashboard>
@@ -40,8 +58,10 @@ const Order = () => {
                                     <td>
                                         <button className="btn btn-warning">Pending</button>
                                     </td>
+                                    {/* delete button  */}
                                     <td>
-                                        <button className="btn btn-danger"><i className="far fa-trash-alt"></i></button>
+                                        <button
+                                            onClick={() => handleDelete(order?._id)} className="btn btn-danger"><i className="far fa-trash-alt"></i></button>
                                     </td>
                                 </tr>
 

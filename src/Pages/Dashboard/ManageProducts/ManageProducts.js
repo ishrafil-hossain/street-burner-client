@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Container } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import Footer from '../../Shared/Footer/Footer';
-import Header from '../../Shared/Header/Header';
+import { Container, Button } from 'react-bootstrap';
+import Dashboard from '../Dashboard/Dashboard';
 
-const Explore = () => {
+const ManageProducts = () => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
@@ -13,10 +11,27 @@ const Explore = () => {
             .then(data => setProducts(data))
     }, []);
 
+    // Delete a product 
+    const handleDelete = id => {
+        const confirm = window.confirm('Are you sure to delete this product?');
+        if (confirm) {
+            fetch(`http://localhost:5000/products/${id}`, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log('this is data', data);
+                    const remaining = products.filter(order => order._id !== id);
+                    setProducts(remaining);
+                })
+        }
+
+    }
     return (
         <div>
-            <Header></Header>
+            <Dashboard></Dashboard>
             <Container>
+                <h2 className="text-center text-info mt-3">Total Products : {products.length}</h2>
                 <div className="row row-cols-1 row-cols-md-3 g-4 m-2">
                     {
                         products.map(product => <div
@@ -31,17 +46,16 @@ const Explore = () => {
                                 <p>{product.description}</p>
                             </div>
 
-                            <Link to={`/buy-now/${product.id}`}>
-                                <Button variant="primary w-100">Buy Now</Button>
-                            </Link>
+                            <Button
+                                onClick={() => handleDelete(product?._id)}
+                                variant="warning w-100">Delete</Button>
                         </div>)
                     }
                 </div>
 
             </Container>
-            <Footer></Footer>
         </div>
     );
 };
 
-export default Explore;
+export default ManageProducts;

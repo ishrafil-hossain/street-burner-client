@@ -39,6 +39,9 @@ const Dashboard = () => {
                                                 <Nav.Link as={Link} to="/manage-orders"><i className="fas fa-star"></i> Manage Orders</Nav.Link>
                                             </Nav.Item>
                                             <Nav.Item>
+                                                <Nav.Link as={Link} to="/manage-products"><i className="fas fa-star"></i> Manage Products</Nav.Link>
+                                            </Nav.Item>
+                                            <Nav.Item>
                                                 <Nav.Link as={Link} to="/add-product"><i className="fas fa-star"></i> Add Product</Nav.Link>
                                             </Nav.Item>
                                             <Nav.Item>
