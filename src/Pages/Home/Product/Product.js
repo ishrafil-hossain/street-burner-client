@@ -17,7 +17,7 @@ const Product = ({ product }) => {
                 </div>
 
                 <Link to={`/buy-now/${_id}`}>
-                    <Button variant="primary">Buy Now</Button>
+                    <Button variant="primary w-100">Buy Now</Button>
                 </Link>
             </div>
         </div>
