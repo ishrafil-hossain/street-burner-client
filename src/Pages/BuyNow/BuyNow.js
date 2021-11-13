@@ -15,7 +15,7 @@ const BuyNow = () => {
             .then(data => setBuynow(data));
     }, []);
 
-    const find = buynow.find(product => product.id == buyNowId)
+    const find = buynow.find(product => product._id == buyNowId)
 
 
 
