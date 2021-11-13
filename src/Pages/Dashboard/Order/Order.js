@@ -8,7 +8,7 @@ const Order = () => {
     const [orders, setOrders] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/purchases?email=${user.email}`)
+        fetch(`https://guarded-fortress-06498.herokuapp.com/purchases?email=${user.email}`)
             .then(res => res.json())
             .then(data => setOrders(data));
     }, []);
@@ -17,7 +17,7 @@ const Order = () => {
     const handleDelete = id => {
         const confirm = window.confirm('Are you sure to delete your order?');
         if (confirm) {
-            fetch(`http://localhost:5000/purchases/${id}`, {
+            fetch(`https://guarded-fortress-06498.herokuapp.com/purchases/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())

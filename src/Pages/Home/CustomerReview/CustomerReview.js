@@ -1,26 +1,30 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
+import './CustomerReview.css';
 
 const CustomerReview = () => {
+    const [reviews, setReviews] = useState([]);
+
+    useEffect(() => {
+        fetch('https://guarded-fortress-06498.herokuapp.com/reviews')
+            .then(res => res.json())
+            .then(data => setReviews(data))
+    }, []);
     return (
         <div>
-            <h2 className="text-center mt-5 mb-5">Customer review page</h2>
+            <h2 className="text-center mt-5 mb-5 text-success">Our Customer Reviews</h2>
             <Container>
                 <Row className="justify-content-md-center">
-                    <Col xs lg="2">
-                        <div>
-                            <h4>Name</h4>
+                    {
+                        reviews.map(review => <Col
+                            xs lg="2">
+                            <div className="review-card">
+                                <h4>{review.name}</h4>
+                                <p>Rating:{review.rating}</p>
+                            </div>
 
-                        </div>
-                    </Col>
-
-                    <Col xs lg="2">
-                        2 of 3
-                    </Col>
-
-                    <Col xs lg="2">
-                        3 of 3
-                    </Col>
+                        </Col>)
+                    }
                 </Row>
             </Container>
         </div>

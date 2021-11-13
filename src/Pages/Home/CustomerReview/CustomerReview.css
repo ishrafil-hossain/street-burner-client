@@ -1,0 +1,12 @@
+.review-card{
+    /* background-color: rosybrown; */
+    text-align: center;
+    border: 3px solid black;
+    border-radius: 85px;
+    padding: 45px;
+    background-image: linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,1));
+}
+
+.review-card p {
+    font-weight: bold;
+}

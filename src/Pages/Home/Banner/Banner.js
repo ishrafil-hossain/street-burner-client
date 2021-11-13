@@ -14,34 +14,32 @@ const Banner = () => {
             <Carousel.Item interval={1000}>
                 <img style={mystyle}
                     className="d-block w-100"
-                    src={a}
+                    src="https://i.ibb.co/JpsgpWL/bike3.jpg"
                     alt="First slide"
+                // https://i.ibb.co/3p5WdL2/bike1.jpg
                 />
                 <Carousel.Caption>
-                    <h3>First slide label</h3>
-                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                    <h3>Everything looks better from the inside of a motorcycle helmet</h3>
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item interval={500}>
                 <img style={mystyle}
                     className="d-block w-100"
-                    src={c}
+                    src="https://i.ibb.co/8PFPWHm/b1.jpg"
                     alt="Second slide"
                 />
                 <Carousel.Caption>
-                    <h3>Second slide label</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <h3>Biker heaven, Free road, Full tank, Full throttle</h3>
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
                 <img style={mystyle}
                     className="d-block w-100"
-                    src={b}
+                    src="https://i.ibb.co/FJt2xqm/download2.png"
                     alt="Third slide"
                 />
                 <Carousel.Caption>
-                    <h3>Third slide label</h3>
-                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                    <h3>Everyday is a good day for ride.</h3>
                 </Carousel.Caption>
             </Carousel.Item>
         </Carousel>

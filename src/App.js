@@ -20,6 +20,7 @@ import Review from './Pages/Dashboard/Review/Review';
 import AddProduct from './Pages/Dashboard/AddProduct/AddProduct';
 import ManageOrder from './Pages/Dashboard/ManageOrder/ManageOrder';
 import ManageProducts from './Pages/Dashboard/ManageProducts/ManageProducts';
+import NotFound from './Pages/NotFound/NotFound';
 
 function App() {
   return (
@@ -81,6 +82,10 @@ function App() {
           <PrivateRoute path="/buy-now/:buyNowId">
             <BuyNow></BuyNow>
           </PrivateRoute>
+
+          <Route path="*">
+            <NotFound></NotFound>
+          </Route>
 
         </Switch>
       </Router>

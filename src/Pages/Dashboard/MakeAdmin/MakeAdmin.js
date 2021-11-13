@@ -12,7 +12,7 @@ const MakeAdmin = () => {
     const handleAdminSubmit = e => {
         alert('You have successfully added an admin')
         const user = { email };
-        fetch('http://localhost:5000/users/admin', {
+        fetch('https://guarded-fortress-06498.herokuapp.com/users/admin', {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'

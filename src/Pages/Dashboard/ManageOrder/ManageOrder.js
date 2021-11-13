@@ -8,7 +8,7 @@ const ManageOrder = () => {
     const [orders, setOrders] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/purchases/users')
+        fetch('https://guarded-fortress-06498.herokuapp.com/purchases/users')
             .then(res => res.json())
             .then(data => setOrders(data));
     }, []);
@@ -17,7 +17,7 @@ const ManageOrder = () => {
     const handleDelete = id => {
         const confirm = window.confirm('Are you sure to delete this order?');
         if (confirm) {
-            fetch(`http://localhost:5000/purchases/users/${id}`, {
+            fetch(`https://guarded-fortress-06498.herokuapp.com/purchases/users/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
