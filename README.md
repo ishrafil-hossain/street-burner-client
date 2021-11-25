@@ -1,5 +1,10 @@
 # Street Burner
 
+## About Street Burner :
+- This is the web based bike seller application, where a user can find their target    products or bike and easily buy products.
+
+- User must create an account, without create an account, he/she can not buy products.
+
 ##### Live Site Link [Street Burner](https://street-burner-819b1.web.app).
 
 ##### Some Features & Functionalities are below down : 
