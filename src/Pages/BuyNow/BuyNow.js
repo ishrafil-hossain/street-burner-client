@@ -20,7 +20,7 @@ const BuyNow = () => {
 
 
 
-    const initialInfo = { name: user.displayName, email: user.email, selection: '', city: '', phone: '' }
+    const initialInfo = { name: user.displayName, email: user.email, productName: find?.name, productPrice: find?.price, selection: '', city: '', phone: '' }
     const [purchases, setPurchases] = useState(initialInfo);
 
     const handleOnBlur = e => {
@@ -34,8 +34,8 @@ const BuyNow = () => {
     const handlePurchase = e => {
         alert('successfully purchases now')
         // collect data 
-        const purchaseData = { ...purchases, productName: find.name, productPrice: find.price }
-        console.log(purchaseData)
+        const purchaseData = { ...purchases, productName: find?.name, productPrice: find?.price }
+        console.log(purchaseData);
         // send data to the server 
         fetch('https://guarded-fortress-06498.herokuapp.com/purchases', {
             method: 'POST',
@@ -91,6 +91,22 @@ const BuyNow = () => {
                                         name="email"
                                         onBlur={handleOnBlur}
                                         defaultValue={user.email} />
+                                </Form.Group>
+                                <Form.Group className="mb-3" controlId="formGroupProduct">
+                                    <Form.Control
+                                        className="w-100"
+                                        type="text"
+                                        name="product-name"
+                                        onBlur={handleOnBlur}
+                                        defaultValue={find?.name} />
+                                </Form.Group>
+                                <Form.Group className="mb-3" controlId="formGroupPrice">
+                                    <Form.Control
+                                        className="w-100"
+                                        type="number"
+                                        name="product-price"
+                                        onBlur={handleOnBlur}
+                                        defaultValue={find?.price} />
                                 </Form.Group>
                                 <Form.Group as={Col} controlId="formGridState" className="mb-3">
                                     <Form.Select
