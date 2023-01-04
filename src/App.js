@@ -47,7 +47,7 @@ function App() {
             <Register></Register>
           </Route>
 
-          <Route path="/payment">
+          <Route path="/payment/:productId">
             <Payment></Payment>
           </Route>
 

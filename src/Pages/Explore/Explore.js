@@ -8,7 +8,7 @@ const Explore = () => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        fetch('https://guarded-fortress-06498.herokuapp.com/products')
+        fetch('https://street-burner-server.vercel.app/products')
             .then(res => res.json())
             .then(data => setProducts(data))
     }, []);

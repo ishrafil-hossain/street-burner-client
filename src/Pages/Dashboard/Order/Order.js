@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Table } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import Dashboard from '../Dashboard/Dashboard';
 
@@ -8,7 +9,7 @@ const Order = () => {
     const [orders, setOrders] = useState([]);
 
     useEffect(() => {
-        fetch(`https://guarded-fortress-06498.herokuapp.com/purchases?email=${user.email}`)
+        fetch(`https://street-burner-server.vercel.app/purchases?email=${user.email}`)
             .then(res => res.json())
             .then(data => setOrders(data));
     }, []);
@@ -17,7 +18,7 @@ const Order = () => {
     const handleDelete = id => {
         const confirm = window.confirm('Are you sure to delete your order?');
         if (confirm) {
-            fetch(`https://guarded-fortress-06498.herokuapp.com/purchases/${id}`, {
+            fetch(`https://street-burner-server.vercel.app/purchases/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
@@ -43,7 +44,8 @@ const Order = () => {
                             <th>Product Name</th>
                             <th>Price</th>
                             <th scope="col">Status</th>
-                            <th scope="col">Action</th>
+                            <th scope="col">Action-1</th>
+                            <th scope="col">Action-2</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -63,6 +65,12 @@ const Order = () => {
                                         <button
                                             onClick={() => handleDelete(order?._id)} className="btn btn-danger"><i className="far fa-trash-alt"></i></button>
                                     </td>
+                                    <td>{order.payment ?
+                                        'Paid' :
+                                        <Link to={`/payment/{${order._id}}`}>
+                                            <button className="btn btn-info">Pay</button>
+                                        </Link>
+                                    }</td>
                                 </tr>
 
                             )

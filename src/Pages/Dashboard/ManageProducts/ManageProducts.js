@@ -6,7 +6,7 @@ const ManageProducts = () => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        fetch('https://guarded-fortress-06498.herokuapp.com/products')
+        fetch('https://street-burner-server.vercel.app/products')
             .then(res => res.json())
             .then(data => setProducts(data))
     }, []);
@@ -15,7 +15,7 @@ const ManageProducts = () => {
     const handleDelete = id => {
         const confirm = window.confirm('Are you sure to delete this product?');
         if (confirm) {
-            fetch(`https://guarded-fortress-06498.herokuapp.com/products/${id}`, {
+            fetch(`https://street-burner-server.vercel.app/products/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())

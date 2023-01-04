@@ -10,7 +10,7 @@ const BuyNow = () => {
     const [buynow, setBuynow] = useState([]);
 
     useEffect(() => {
-        fetch('https://guarded-fortress-06498.herokuapp.com/products')
+        fetch('https://street-burner-server.vercel.app/products')
             .then(res => res.json())
             .then(data => setBuynow(data));
     }, []);
@@ -37,7 +37,7 @@ const BuyNow = () => {
         const purchaseData = { ...purchases, productName: find?.name, productPrice: find?.price }
         console.log(purchaseData);
         // send data to the server 
-        fetch('https://guarded-fortress-06498.herokuapp.com/purchases', {
+        fetch('https://street-burner-server.vercel.app/purchases', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

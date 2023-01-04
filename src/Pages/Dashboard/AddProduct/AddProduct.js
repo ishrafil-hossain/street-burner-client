@@ -9,7 +9,7 @@ const AddProduct = () => {
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
         console.log(data);
-        axios.post('https://guarded-fortress-06498.herokuapp.com/products', data)
+        axios.post('https://street-burner-server.vercel.app/products', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert('You have successfully add a product ):');
