@@ -6,7 +6,7 @@ const Products = () => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        fetch('https://street-burner-server.vercel.app/products')
+        fetch('https://street-burner-.up.railway.app/products')
             .then(res => res.json())
             .then(data => setProducts(data))
     }, []);

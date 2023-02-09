@@ -9,7 +9,7 @@ const Order = () => {
     const [orders, setOrders] = useState([]);
 
     useEffect(() => {
-        fetch(`https://street-burner-server.vercel.app/purchases?email=${user.email}`)
+        fetch(`https://street-burner-.up.railway.app/purchases?email=${user.email}`)
             .then(res => res.json())
             .then(data => setOrders(data));
     }, []);
@@ -18,7 +18,7 @@ const Order = () => {
     const handleDelete = id => {
         const confirm = window.confirm('Are you sure to delete your order?');
         if (confirm) {
-            fetch(`https://street-burner-server.vercel.app/purchases/${id}`, {
+            fetch(`https://street-burner-.up.railway.app/purchases/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())

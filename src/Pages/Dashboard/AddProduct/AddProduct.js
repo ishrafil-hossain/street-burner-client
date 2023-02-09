@@ -9,7 +9,7 @@ const AddProduct = () => {
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
         console.log(data);
-        axios.post('https://street-burner-server.vercel.app/products', data)
+        axios.post('https://street-burner-.up.railway.app/products', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert('You have successfully add a product ):');

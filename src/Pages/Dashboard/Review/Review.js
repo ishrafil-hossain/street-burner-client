@@ -11,7 +11,7 @@ const Review = () => {
     const onSubmit = data => {
         console.log(data);
 
-        axios.post('https://street-burner-server.vercel.app/reviews', data)
+        axios.post('https://street-burner-.up.railway.app/reviews', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert('Thank you for give us your valueable rating');

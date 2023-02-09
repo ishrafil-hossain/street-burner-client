@@ -67,7 +67,7 @@ const useFirebase = () => {
     }, [])
 
     useEffect(() => {
-        fetch(`https://street-burner-server.vercel.app/users/${user.email}`)
+        fetch(`https://street-burner-.up.railway.app/users/${user?.email}`)
             .then(res => res.json())
             .then(data => setAdmin(data.admin))
     }, [user.email])
@@ -86,7 +86,7 @@ const useFirebase = () => {
     // save user data to the database 
     const saveUser = (email, displayName) => {
         const user = { email, displayName };
-        fetch('https://street-burner-server.vercel.app/users', {
+        fetch('https://street-burner-.up.railway.app/users', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
