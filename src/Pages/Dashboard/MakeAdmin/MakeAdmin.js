@@ -12,7 +12,7 @@ const MakeAdmin = () => {
     const handleAdminSubmit = e => {
         alert('You have successfully added an admin')
         const user = { email };
-        fetch('https://street-burner-.up.railway.app/users/admin', {
+        fetch('https://street-burner-server.onrender.com/users/admin', {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'

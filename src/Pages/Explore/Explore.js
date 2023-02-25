@@ -6,9 +6,9 @@ import Header from '../../Shared/Header/Header';
 
 const Explore = () => {
     const [products, setProducts] = useState([]);
-    //https://street-burner-.up.railway.app
+    //https://street-burner-server.onrender.com
     useEffect(() => {
-        fetch('https://street-burner-.up.railway.app/products')
+        fetch('https://street-burner-server.onrender.com/products')
             .then(res => res.json())
             .then(data => setProducts(data))
     }, []);

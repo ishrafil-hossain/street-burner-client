@@ -10,7 +10,7 @@ const BuyNow = () => {
     const [buynow, setBuynow] = useState([]);
 
     useEffect(() => {
-        fetch('https://street-burner-.up.railway.app/products')
+        fetch('https://street-burner-server.onrender.com/products')
             .then(res => res.json())
             .then(data => setBuynow(data));
     }, []);
@@ -37,7 +37,7 @@ const BuyNow = () => {
         const purchaseData = { ...purchases, productName: find?.name, productPrice: find?.price }
         console.log(purchaseData);
         // send data to the server 
-        fetch('https://street-burner-.up.railway.app/purchases', {
+        fetch('https://street-burner-server.onrender.com/purchases', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

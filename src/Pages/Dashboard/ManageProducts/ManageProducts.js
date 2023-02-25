@@ -6,7 +6,7 @@ const ManageProducts = () => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        fetch('https://street-burner-.up.railway.app/products')
+        fetch('https://street-burner-server.onrender.com/products')
             .then(res => res.json())
             .then(data => setProducts(data))
     }, []);
@@ -15,7 +15,7 @@ const ManageProducts = () => {
     const handleDelete = id => {
         const confirm = window.confirm('Are you sure to delete this product?');
         if (confirm) {
-            fetch(`https://street-burner-.up.railway.app/products/${id}`, {
+            fetch(`https://street-burner-server.onrender.com/products/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
